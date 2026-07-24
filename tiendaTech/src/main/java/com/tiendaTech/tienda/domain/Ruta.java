@@ -22,4 +22,3 @@ public class Ruta implements Serializable {
     @JoinColumn(name = "id_rol")
     private Rol rol;
 }
- 

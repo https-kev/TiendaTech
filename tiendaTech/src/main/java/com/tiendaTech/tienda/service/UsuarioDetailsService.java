@@ -28,7 +28,7 @@ public class UsuarioDetailsService implements UserDetailsService {
     //Si lo encuentra guarda la foto del usuario en una sessión, y general los roles del usuario
     @Override
     @Transactional(readOnly = true)
-    public UserDetails loadUserByUsername(String username)
+    public UserDetails loadUserByUsername(String username) 
             throws UsernameNotFoundException {
         //Se busca el usuario de ese username
         Usuario usuario = usuarioRepository.findByUsernameAndActivoTrue(username)

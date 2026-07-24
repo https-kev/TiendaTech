@@ -3,7 +3,6 @@ package com.tiendaTech.tienda.service;
 import com.tiendaTech.tienda.domain.Producto;
 import com.tiendaTech.tienda.repository.ProductoRepository;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -14,18 +13,18 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 public class ProductoService {
 
+    // El repositorio es final para asegurar la inmutabilidad
     private final ProductoRepository productoRepository;
     private final FirebaseStorageService firebaseStorageService;
 
-    public ProductoService(ProductoRepository productoRepository,
-            FirebaseStorageService firebaseStorageService) {
+    public ProductoService(ProductoRepository productoRepository, FirebaseStorageService firebaseStorageService) {
         this.productoRepository = productoRepository;
         this.firebaseStorageService = firebaseStorageService;
     }
 
     @Transactional(readOnly = true)
     public List<Producto> getProductos(boolean activo) {
-        if (activo) {
+        if (activo) { //Sólo activos...            
             return productoRepository.findByActivoTrue();
         }
         return productoRepository.findAll();
@@ -81,4 +80,5 @@ public class ProductoService {
     public List<Producto> consultaSQL(double precioInf, double precioSup) {
         return productoRepository.consultaSQL(precioInf, precioSup);
     }
+
 }

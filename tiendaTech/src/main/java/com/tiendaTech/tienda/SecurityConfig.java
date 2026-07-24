@@ -1,4 +1,4 @@
-   package com.tiendaTech.tienda;
+package com.tiendaTech.tienda;
 
 import com.tiendaTech.tienda.domain.Ruta;
 import com.tiendaTech.tienda.service.RutaService;
@@ -99,4 +99,3 @@ public class SecurityConfig {
     }
 
 }
- 
